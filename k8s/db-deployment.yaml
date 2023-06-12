@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  database-deployment
+  labels:
+    app: db
+spec:
+  selector:
+    matchLabels:
+      app: db
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - name: postgres
+        image:  postgres:14
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 300m
+            memory: 200Mi
+        env:
+        - name: POSTGRES_PASSWORD
+          value: pass123
+        - name: POSTGRES_USER
+          value: dbuser
+        - name: POSTGRES_DB
+          value: testdb
+        ports:
+        - containerPort: 5432
+          name: postgres
+        volumeMounts:
+        - name: dbdata
+          mountPath: /var/lib/postgresql/data
+          subPath: pgdata
+      volumes:
+        - name: dbdata
+          persistentVolumeClaim:
+            claimName: db-volume
+      restartPolicy: Always

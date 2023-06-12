@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-deployment
+  labels:
+    app: flask
+spec:
+  selector:
+    matchLabels:
+      app: flask
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+      - name: flask
+        image: tsadimas/flask:pms18
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
+        env:
+        - name: SQLALCHEMY_DATABASE_URI
+          value: postgresql://dbuser:pass123@db-service:7000/testdb
+        - name: SQLALCHEMY_TRACK_MODIFICATIONS
+          value: "true"
+        - name: SECRET_KEY
+          value: fgrebtrhyr
+        ports:
+        - containerPort: 5000
+          name: flask
