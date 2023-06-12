@@ -1,6 +1,8 @@
 
 ```bash
-kubectl create namespace cert-manager helm repo add jetstack https://charts.jetstack.io helm repo update
+kubectl create namespace cert-manager 
+helm repo add jetstack https://charts.jetstack.io 
+helm repo update
 
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.0/cert-manager.crds.yaml
 

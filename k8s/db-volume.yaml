@@ -5,7 +5,7 @@ metadata:
   labels:
     app: db
 spec:
-  storageClassName: default
+  storageClassName: microk8s-hostpath
   accessModes:
   - ReadWriteOnce
   resources:
