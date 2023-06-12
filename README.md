@@ -2,10 +2,12 @@
 
 ## Links
 
-* https://docs.docker.com/config/daemon/prometheus/
-* https://grafana.com/grafana/dashboards/1229-docker-engine-metrics/
-* https://grafana.com/grafana/dashboards/1860-node-exporter-full/
-* https://gist.githubusercontent.com/krisek/62a98e2645af5dce169a7b506e999cd8/raw/b67dd1dad1bcf2896f56dd02a657d8eac8e893ea/alert.rules.yml
+* [Collect Docker metrics with Prometheus
+](https://docs.docker.com/config/daemon/prometheus/)
+* [Docker Engine Metrics](https://grafana.com/grafana/dashboards/1229-docker-engine-metrics/)
+* [Node Exporter Full
+](https://grafana.com/grafana/dashboards/1860-node-exporter-full/)
+* [sample alert rules](https://gist.githubusercontent.com/krisek/62a98e2645af5dce169a7b506e999cd8/raw/b67dd1dad1bcf2896f56dd02a657d8eac8e893ea/alert.rules.yml)
 
 ## Grafana
 * add prometheus data source (Administratiom/Data Sources --> Add new data source, select Prometheus, add ``http://localhost:9090`` as url)

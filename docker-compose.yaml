@@ -23,9 +23,9 @@ services:
     expose:
       - 9100
     network_mode: host
-  ping:
-    image: alpine
-    command: ping docker.com
+  # ping:
+  #   image: alpine
+  #   command: ping docker.com
   grafana:
     image: grafana/grafana-oss
     network_mode: host
