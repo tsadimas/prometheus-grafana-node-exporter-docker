@@ -35,6 +35,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
+      - ./assets/alerting:/etc/grafana/provisioning/alerting
       - grafana-data:/var/lib/grafana
   mail:
     image: mailhog/mailhog
